@@ -19,8 +19,7 @@ release-bump:
     - git checkout master
     - git pull
     - git merge --no-commit $CI_COMMIT_SHA
-    - helm plugin install https://github.com/mbenabda/helm-local-chart-version
-    - helm local-chart-version set 69.69.69
+    - touch example.txt
     - git add .
     - git commit -m 'RELEASE 69.69.69'
     - git push
