@@ -8,11 +8,6 @@
     }
   ],
   "prepare": [
-    "@semantic-release/exec",
-    {
-      "path": "@semantic-release/exec",
-      "cmd": "./release.sh"
-    },
     {
       "path": "@semantic-release/changelog",
       "changelogFile": "CHANGELOG.md"
