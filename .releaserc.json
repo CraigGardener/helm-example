@@ -13,10 +13,6 @@
       "cmd": "git checkout master; git pull; git merge origin/develop"
     },
     {
-      "path": "@semantic-release/changelog",
-      "changelogFile": "CHANGELOG.md"
-    },
-    {
       "path": "@semantic-release/exec",
       "cmd": "git checkout master; git pull; git merge origin/develop"
     },
