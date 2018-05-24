@@ -20,7 +20,7 @@ release-bump:
     - helm plugin install https://github.com/mbenabda/helm-local-chart-version
     - helm local-chart-version set 69.69.69
     - git add .
-    - git commit -m "chore(release): 69.69.69"
+    - git commit -m 'RELEASE 69.69.69'
 
 release-chart:
   stage: release
