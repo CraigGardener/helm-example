@@ -16,6 +16,7 @@ release-bump:
   script:
     - mkdir -p ~/.ssh
     - echo "$GITLAB_CI_SSH_KEY" > ~/.ssh/id_rsa
+    - ssh-keyscan gitlab.craiggardener.uk > ~/.ssh/known_hosts
     - apk add --no-cache --update openssh-client perl
     - git remote set-url --push origin $(echo $CI_REPOSITORY_URL | perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#')
     - git config --global user.email "gitlab-ci@craiggardener.uk"
@@ -23,7 +24,7 @@ release-bump:
     - git checkout master
     - git pull
     - git merge --no-commit $CI_COMMIT_SHA
-    - touch example2.txt
+    - touch example3.txt
     - git add .
     - git commit -m 'RELEASE 69.69.69'
     - git push
