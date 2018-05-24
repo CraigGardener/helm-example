@@ -8,11 +8,11 @@
     "prepare": [
       {
         "path": "@semantic-release/exec",
-        "cmd": "git checkout master; git merge develop; sed -i '' -e \"s/^version.*/version: ${version}/\" Chart.yaml",
+        "cmd": "./release.sh"
       },
       {
         "path": "@semantic-release/changelog",
-        "changelogFile": "CHANGELOG.md",
+        "changelogFile": "CHANGELOG.md"
       },
       {
         "path": "@semantic-release/git",
