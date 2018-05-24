@@ -15,7 +15,7 @@ release-bump:
   stage: release
   script:
     - mkdir -p ~/.ssh
-    - echo "$GITLAB_CI_SSH_KEY" > ~/.ssh/id_rsa && chmod 400 ~/.ssh/id_rsa
+    - echo "$GITLAB_CI_SSH_KEY" | tr -d '\r' > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
     - apk add --no-cache --update openssh-client perl
     - git remote set-url --push origin $(echo $CI_REPOSITORY_URL | perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#')
     - git config --global user.email "gitlab-ci@craiggardener.uk"
