@@ -9,12 +9,20 @@
   ],
   "prepare": [
     {
+      "path": "@semantic-release/exec",
+      "cmd": "git checkout master; git pull; git merge origin/develop"
+    },
+    {
       "path": "@semantic-release/changelog",
       "changelogFile": "CHANGELOG.md"
     },
     {
+      "path": "@semantic-release/exec",
+      "cmd": "git checkout master; git pull; git merge origin/develop"
+    },
+    {
       "path": "@semantic-release/git",
-      "assets": ["Chart.yaml"],
+      "assets": ["Chart.yaml", "CHANGELOG.md"],
       "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
     }
   ],
@@ -22,6 +30,11 @@
     {
       "path": "@semantic-release/gitlab",
       "gitlabUrl": "https://gitlab.craiggardener.uk"
+    },
+    {
+      "path": "@semantic-release/git",
+      "assets": ["Chart.yaml", "CHANGELOG.md"],
+      "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
     }
   ],
   "success": false,
