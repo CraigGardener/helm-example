@@ -23,6 +23,7 @@ release-bump:
     - helm local-chart-version set 69.69.69
     - git add .
     - git commit -m 'RELEASE 69.69.69'
+    - git push
 
 release-chart:
   stage: release
