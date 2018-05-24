@@ -16,7 +16,7 @@ semantic-release:
   image: node:8
   script:
     - npm -g install semantic-release @semantic-release/changelog @semantic-release/exec @semantic-release/git @semantic-release/gitlab
-    - semantic-release
+    - semantic-release --branch develop
   only:
     - develop
 
