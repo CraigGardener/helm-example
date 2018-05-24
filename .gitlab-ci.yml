@@ -23,7 +23,7 @@ release-bump:
     - git checkout master
     - git pull
     - git merge --no-commit $CI_COMMIT_SHA
-    - touch example.txt
+    - touch example2.txt
     - git add .
     - git commit -m 'RELEASE 69.69.69'
     - git push
