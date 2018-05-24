@@ -16,18 +16,19 @@ release-bump:
   script:
 
     - apk add --no-cache --update openssh-client perl
-    - git remote set-url --push origin $(echo $CI_REPOSITORY_URL | perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#')
     - mkdir -p ~/.ssh
+    - ssh-keyscan gitlab.craiggardener.uk > ~/.ssh/known_hosts
+    - eval `ssh-agent -s`
     - ssh-add <(echo "$GITLAB_CI_SSH_KEY")
     - git config --global user.email "gitlab-ci@craiggardener.uk"
     - git config --global user.name "GitLab CI"
+    - git remote set-url --push origin $(echo $CI_REPOSITORY_URL | perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#')
     - git checkout master
     - git pull
     - git merge --no-commit $CI_COMMIT_SHA
     - touch example3.txt
     - git add .
     - git commit -m 'RELEASE 69.69.69'
-    - ssh-keyscan gitlab.craiggardener.uk > ~/.ssh/known_hosts
     - git push
 
 release-chart:
