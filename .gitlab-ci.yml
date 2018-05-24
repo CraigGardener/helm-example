@@ -11,6 +11,15 @@ lint:
   except:
     - master
 
+semantic-release:
+  stage: release
+  image: node:8
+  script:
+    - npm -g install semantic-release @semantic-release/changelog @semantic-release/exec @semantic-release/git @semantic-release/gitlab
+    - semantic-release
+  only:
+    - develop
+
 release-chart:
   stage: release
   script:
