@@ -1,5 +1,6 @@
 {
   "release": {
+    "branch": "develop",
     "verifyConditions": [
       "@semantic-release/git",
       "@semantic-release/gitlab"
@@ -7,7 +8,7 @@
     "prepare": [
       {
         "path": "@semantic-release/exec",
-        "cmd": "git checkout master; git merge ${options.branch}; sed -i '' -e \"s/^version.*/version: ${version}/\" Chart.yaml",
+        "cmd": "git checkout master; git merge develop; sed -i '' -e \"s/^version.*/version: ${version}/\" Chart.yaml",
       },
       {
         "path": "@semantic-release/changelog",
