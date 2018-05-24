@@ -10,11 +10,7 @@
   "prepare": [
     {
       "path": "@semantic-release/exec",
-      "cmd": "git checkout master; git pull; git merge origin/develop"
-    },
-    {
-      "path": "@semantic-release/exec",
-      "cmd": "git checkout master; git pull; git merge origin/develop"
+      "cmd": "git checkout master; git pull; git merge --no-commit origin/develop; curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash; helm plugin install https://github.com/mbenabda/helm-local-chart-version; helm local-chart-version set ${nextRelease.notes}"
     },
     {
       "path": "@semantic-release/git",
