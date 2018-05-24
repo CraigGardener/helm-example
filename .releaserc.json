@@ -2,7 +2,10 @@
   "branch": "develop",
   "verifyConditions": [
     "@semantic-release/git",
-    "@semantic-release/gitlab"
+    {
+      "path": "@semantic-release/gitlab",
+      "gitlabUrl": "https://gitlab.craiggardener.uk"
+    }
   ],
   "prepare": [
     "@semantic-release/exec",
@@ -21,7 +24,10 @@
     }
   ],
   "publish": [
-    "@semantic-release/gitlab"
+    {
+      "path": "@semantic-release/gitlab",
+      "gitlabUrl": "https://gitlab.craiggardener.uk"
+    }
   ],
   "success": false,
   "fail": false
