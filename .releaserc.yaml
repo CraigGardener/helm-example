@@ -1,0 +1,25 @@
+verifyConditions:
+- "@semantic-release/git"
+- path: "@semantic-release/gitlab"
+  gitlabUrl: https://gitlab.craiggardener.uk
+prepare:
+- path: "@semantic-release/exec"
+  cmd: |-
+    git checkout master
+    git pull
+    git merge --no-commit origin/develop
+    helm local-chart-version set ${nextRelease.notes}
+    sed -i 's|^version.*|version: '"${version}"'|g' Chart.yaml
+- path: "@semantic-release/changelog"
+- path: "@semantic-release/git"
+  assets:
+    - "*"
+  message: |-
+    chore(release): ${nextRelease.version}
+
+    ${nextRelease.notes}
+publish:
+- path: "@semantic-release/gitlab"
+  gitlabUrl: https://gitlab.craiggardener.uk
+success: false
+fail: false
