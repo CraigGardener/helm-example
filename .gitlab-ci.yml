@@ -25,7 +25,7 @@ release:
     - git remote set-url --push origin $(echo $CI_REPOSITORY_URL | perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#')
     - semantic-release --debug
   only:
-    develop
+    - develop
 
 release-chart:
   stage: release
