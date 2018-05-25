@@ -17,8 +17,7 @@ release:
   script:
     - mkdir -p ~/.ssh
     - ssh-keyscan gitlab.craiggardener.uk > ~/.ssh/known_hosts
-    - eval `ssh-agent -s`
-    - ssh-add <(echo "$GITLAB_CI_SSH_KEY")
+    - echo "$GITLAB_CI_SSH_KEY" > ~/.ssh/id_rsa
     - git config --global user.email "gitlab-ci@craiggardener.uk"
     - git config --global user.name "GitLab CI"
     - git remote set-url --push origin $(echo $CI_REPOSITORY_URL | perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#')
