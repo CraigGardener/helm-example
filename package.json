@@ -1,0 +1,39 @@
+{
+  "name": "@craiggardener/example",
+  "description": "Example helm chart",
+  "version": "0.0.0-development",
+  "author": "Craig Gardener <code@craiggardener.uk>",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:CraigGardener/helm-example.git"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "verifyConditions": [
+
+    ],
+    "prepare": [
+      "@craiggardener/semantic-release-helm"
+    ],
+    "publish": [
+      "@craiggardener/semantic-release-helm"
+    ],
+    "fail": [
+
+    ],
+    "success": [
+
+    ]
+  },
+  "dependencies": {
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
+    "semantic-release": "^15.5.2",
+    "@craiggardener/semantic-release-helm": "^1.0.0"
+  }
+}
