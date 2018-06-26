@@ -19,3 +19,6 @@
 .project
 .idea/
 *.tmproj
+
+package.json
+package.lock
